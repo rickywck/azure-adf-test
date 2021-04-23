@@ -1,0 +1,9 @@
+{
+	"name": "test-adf9999",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e73cdeef-ac69-4566-bbf9-a3223ee575b9",
+		"tenantId": "05b517cb-91be-4aab-b00d-c52953bdafae"
+	}
+}
