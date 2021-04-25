@@ -26,11 +26,291 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ProductKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProductKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderDateKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OrderDateKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DueDateKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DueDateKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShipDateKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShipDateKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CustomerKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PromotionKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PromotionKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CurrencyKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CurrencyKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesTerritoryKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SalesTerritoryKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesOrderNumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SalesOrderNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesOrderLineNumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SalesOrderLineNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RevisionNumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RevisionNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderQuantity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OrderQuantity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "UnitPrice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ExtendedAmount",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "ExtendedAmount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPriceDiscountPct",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "UnitPriceDiscountPct",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DiscountAmount",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "DiscountAmount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductStandardCost",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "ProductStandardCost",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalProductCost",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "TotalProductCost",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesAmount",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "SalesAmount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TaxAmt",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "TaxAmt",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Freight",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Freight",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CarrierTrackingNumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CarrierTrackingNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerPONumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CustomerPONumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "OrderDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DueDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "DueDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShipDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "ShipDate",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
 						"type": "DatasetReference"
 					}
 				]
