@@ -1,0 +1,518 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "test-adf9999"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ProductKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ProductKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OrderDateKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OrderDateKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DueDateKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DueDateKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ShipDateKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ShipDateKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CustomerKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CustomerKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PromotionKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PromotionKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CurrencyKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CurrencyKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SalesTerritoryKey",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SalesTerritoryKey",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SalesOrderNumber",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SalesOrderNumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SalesOrderLineNumber",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SalesOrderLineNumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RevisionNumber",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RevisionNumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OrderQuantity",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OrderQuantity",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "UnitPrice",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "UnitPrice",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ExtendedAmount",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ExtendedAmount",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "UnitPriceDiscountPct",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "UnitPriceDiscountPct",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DiscountAmount",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DiscountAmount",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ProductStandardCost",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ProductStandardCost",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TotalProductCost",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TotalProductCost",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SalesAmount",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SalesAmount",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TaxAmt",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TaxAmt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Freight",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Freight",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CarrierTrackingNumber",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CarrierTrackingNumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CustomerPONumber",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CustomerPONumber",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OrderDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "OrderDate",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DueDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DueDate",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ShipDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ShipDate",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText1",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Parquet1",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
+				"[concat(variables('factoryId'), '/datasets/Parquet1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "AWInternetSales.csv",
+						"fileSystem": "test-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "ProductKey",
+						"type": "String"
+					},
+					{
+						"name": "OrderDateKey",
+						"type": "String"
+					},
+					{
+						"name": "DueDateKey",
+						"type": "String"
+					},
+					{
+						"name": "ShipDateKey",
+						"type": "String"
+					},
+					{
+						"name": "CustomerKey",
+						"type": "String"
+					},
+					{
+						"name": "PromotionKey",
+						"type": "String"
+					},
+					{
+						"name": "CurrencyKey",
+						"type": "String"
+					},
+					{
+						"name": "SalesTerritoryKey",
+						"type": "String"
+					},
+					{
+						"name": "SalesOrderNumber",
+						"type": "String"
+					},
+					{
+						"name": "SalesOrderLineNumber",
+						"type": "String"
+					},
+					{
+						"name": "RevisionNumber",
+						"type": "String"
+					},
+					{
+						"name": "OrderQuantity",
+						"type": "String"
+					},
+					{
+						"name": "UnitPrice",
+						"type": "String"
+					},
+					{
+						"name": "ExtendedAmount",
+						"type": "String"
+					},
+					{
+						"name": "UnitPriceDiscountPct",
+						"type": "String"
+					},
+					{
+						"name": "DiscountAmount",
+						"type": "String"
+					},
+					{
+						"name": "ProductStandardCost",
+						"type": "String"
+					},
+					{
+						"name": "TotalProductCost",
+						"type": "String"
+					},
+					{
+						"name": "SalesAmount",
+						"type": "String"
+					},
+					{
+						"name": "TaxAmt",
+						"type": "String"
+					},
+					{
+						"name": "Freight",
+						"type": "String"
+					},
+					{
+						"name": "CarrierTrackingNumber",
+						"type": "String"
+					},
+					{
+						"name": "CustomerPONumber",
+						"type": "String"
+					},
+					{
+						"name": "OrderDate",
+						"type": "String"
+					},
+					{
+						"name": "DueDate",
+						"type": "String"
+					},
+					{
+						"name": "ShipDate",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "https://azuresa9999.dfs.core.windows.net",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "AWInternetSales",
+						"fileSystem": "test-container"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		}
+	]
+}
