@@ -325,6 +325,8 @@
 				]
 			}
 		],
-		"annotations": []
+		"annotations": [
+			"with-source"
+		]
 	}
 }
