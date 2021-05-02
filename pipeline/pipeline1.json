@@ -17,6 +17,10 @@
 					{
 						"name": "Source",
 						"value": "test-container//AWInternetSales.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "test-container//AWInternetSales"
 					}
 				],
 				"typeProperties": {
