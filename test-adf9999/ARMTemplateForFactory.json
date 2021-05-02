@@ -41,6 +41,10 @@
 							{
 								"name": "Source",
 								"value": "test-container//AWInternetSales.csv"
+							},
+							{
+								"name": "Destination",
+								"value": "test-container//AWInternetSales"
 							}
 						],
 						"typeProperties": {
@@ -347,7 +351,9 @@
 						]
 					}
 				],
-				"annotations": []
+				"annotations": [
+					"with-source"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
